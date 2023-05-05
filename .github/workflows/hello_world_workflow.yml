@@ -1,0 +1,25 @@
+name: Python Hello World Workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        # Clone the repository into the GitHub Actions environment
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '*' 
+        # Set up the latest available Python version in the environment
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        # Install any dependencies listed in the requirements.txt file
+
+      - name: Run Hello World script
+        run: python hello_world.py
+        # Run the hello_world.py Python script
